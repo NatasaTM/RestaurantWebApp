@@ -1,0 +1,59 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<section layout:fragment="create_menuItem_section" class="book_section layout_padding">
+  <div class="col-md-6 col-sm-12">
+    <div th:if="${param.error}" class="alert alert-success">
+      Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success">
+      You have been logged out.</div>
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Login Here
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form th:action="@{/login}" method="POST" >
+            <div>
+              <input id="username" type="text" class="form-control"placeholder="Username" name="username" />
+            </div>
+            <div>
+              <input id="password" type="password" class="form-control"  placeholder="Password" name="password" />
+            </div>
+
+
+            <div class="btn_box">
+              <button type="submit" value="Log in">
+                Login
+              </button>
+              <div class="btn_box" style="margin-top: 15px;">
+                <a th:href="@{/register}" class="btn_box"
+                   style="margin-top: 15px; border: none; text-transform: uppercase; display: inline-block; padding: 10px 55px; background-color: #ff0000; color: #ffffff; border-radius: 45px; -webkit-transition: all 0.3s; transition: all 0.3s; border: none;">Don't have account? Register Here!</a>
+              </div>
+
+            </div>
+
+
+
+          </form>
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+</body>
+</html>

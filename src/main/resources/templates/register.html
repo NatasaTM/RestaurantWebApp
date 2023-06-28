@@ -1,0 +1,46 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<section layout:fragment="create_menuItem_section" class="book_section layout_padding">
+  <div th:if="${param.fail}" class="alert alert-success">
+    Username or email already exists</div>
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Register Here
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form action="/register/save" method="POST" th:object="${registrationDto}">
+            <div>
+              <input type="email" class="form-control" th:field="*{email}" placeholder="Your Email" />
+            </div>
+            <div>
+              <input type="password" class="form-control" th:field="*{password}" placeholder="Password" />
+            </div>
+            <div>
+              <input type="text" class="form-control" th:field="*{username}" placeholder="Username" />
+            </div>
+
+            <div class="btn_box">
+              <button type="submit">
+                Register
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+</body>
+</html>

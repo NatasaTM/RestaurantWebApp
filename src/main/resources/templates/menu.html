@@ -1,0 +1,67 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<!-- food section -->
+
+<section layout:fragment="food_section" class="food_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our Menu
+            </h2>
+        </div>
+
+        <ul class="filters_menu">
+            <li class="active" data-filter="*">All</li>
+            <li th:each="category : ${menuCategories}" th:data-filter="|.${category.name.toLowerCase()}|">
+                <span th:text="${category.name}"></span>
+            </li>
+        </ul>
+        <div class="filters-content">
+            <div class="row grid">
+                <div th:each="menuItem : ${menuItems}" class="col-sm-6 col-lg-4 all"
+                     th:classappend="${menuItem.menuCategory.name.toLowerCase()}">
+                    <div class="box">
+                        <div>
+                            <div class="img-box">
+                                <img th:src="@{${menuItem.pictureUrl}}" alt=""/>
+                            </div>
+                            <div class="detail-box">
+                                <h5 th:text="${menuItem.name}"></h5>
+                                <p th:text="${menuItem.description}"></p>
+                                <div class="options">
+                                    <h6 th:text="${menuItem.price}"></h6>
+                                    <a href="">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                             y="0px" viewBox="0 0 456.029 456.029"
+                                             style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  <!-- SVG path for the icon -->
+                </svg>
+                                    </a>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="btn-box">
+            <a href="">
+                View More
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- end food section -->
+</body>
+</html>

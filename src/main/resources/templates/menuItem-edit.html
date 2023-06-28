@@ -1,0 +1,69 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<section layout:fragment="create_menuItem_section" class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Update/Delete Menu Item
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form action="/menuItem-create.html" method="POST" th:object="${menuItem}">
+            <input type="hidden" th:field="*{id}" />
+            <div>
+              <input type="text" class="form-control" th:field="*{name}" placeholder="Name" />
+            </div>
+            <div>
+              <input type="text" class="form-control" th:field="*{description}" placeholder="Description" />
+            </div>
+            <div>
+              <input type="text" class="form-control" th:field="*{price}" placeholder="Price" />
+            </div>
+            <div>
+              <select class="form-control" th:field="*{menuCategory.id}">
+                <option value="">Select Menu Category</option>
+                <option th:each="category : ${menuCategories}" th:value="${category.id}" th:text="${category.name}"></option>
+              </select>
+            </div>
+            <div>
+              <input type="text" class="form-control" th:field="*{pictureUrl}" placeholder="Picture URL" />
+            </div>
+
+            <div class="btn_box">
+              <button type="submit">
+                Update
+              </button>
+            </div>
+
+            <div class="btn_box" style="margin-top: 15px;">
+              <a th:href="@{/menuItem-delete.html(menuItemId=${menuItem.id})}" class="btn btn-danger"
+                 style="margin-top: 15px; border: none; text-transform: uppercase; display: inline-block; padding: 10px 55px; background-color: #ff0000; color: #ffffff; border-radius: 45px; -webkit-transition: all 0.3s; transition: all 0.3s; border: none;">Delete</a>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<script>
+
+
+    function confirmAndSubmit(message) {
+    if (confirm(message)) {
+      document.getElementById('deleteForm').submit();
+    }
+  }
+</script>
+</body>
+</html>
