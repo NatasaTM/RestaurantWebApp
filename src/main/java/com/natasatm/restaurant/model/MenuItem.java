@@ -19,6 +19,7 @@ public class MenuItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     @NotEmpty
     private String name;
     @NotEmpty

@@ -4,4 +4,5 @@ import com.natasatm.restaurant.model.MenuItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MenuItemEntityRepository extends JpaRepository<MenuItemEntity,Long> {
+    MenuItemEntity findByName(String name);
 }
