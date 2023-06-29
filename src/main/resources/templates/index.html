@@ -72,14 +72,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="book.html">Book Table</a>
                         </li>
-                        <li class="nav-item"
-                            th:classappend="${#authorization.expression('hasAuthority(''ROLE_ADMIN'')')} ? 'dropdown'">
-                            <a class="nav-link" th:href="@{/menuItem-create.html}"
-                               th:text="'Handle Menu' + (${#authorization.expression('hasAuthority(''admin'')')} ? ' ▼' : '')"
-                               th:if="${#authorization.expression('hasAuthority(''admin'')')}"></a>
-                            <div class="dropdown-menu" th:if="${#authorization.expression('hasAuthority(''admin'')')}">
-                                <!-- Dropdown menu items for admins -->
-                                <!-- Add your dropdown menu items here -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Handle Menu
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!-- Dropdown menu items -->
+                                <a class="dropdown-item" th:href="@{/menuItem-create.html}">Create new menu item</a>
+                                <a class="dropdown-item" href="#">Item 2</a>
+                                <a class="dropdown-item" href="#">Item 3</a>
+                                <!-- Add more dropdown menu items as needed -->
                             </div>
                         </li>
                     </ul>

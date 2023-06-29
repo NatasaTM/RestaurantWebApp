@@ -4,15 +4,15 @@ import com.natasatm.restaurant.dto.MenuItemDto;
 
 import java.util.List;
 
-public interface MenuItemEntityService {
+public interface MenuItemService {
 
-    List<MenuItemDto> getMenuItemsByMenuId(Long id);
 
-    void addMenuItemsToMenu(MenuEntityDto menu, List<MenuItemDto> menuItemEntitiesDto);
+
+
 
     void addMenuItem(MenuItemDto menuItemDto);
 
-    void addMenuItemToMenu(MenuEntityDto menu, MenuItemDto menuItemEntityDto);
+
 
     List<MenuItemDto> getAllMenuItems();
 

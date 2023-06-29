@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Entity
 @Table(name="menu_item_entity")
-public class MenuItemEntity {
+public class MenuItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,6 +24,8 @@ public class MenuItemEntity {
     @NotEmpty
     private String description;
     @NotNull
+    private Boolean active;
+    @NotNull
     private BigDecimal price;
     @NotEmpty
     private String pictureUrl;
@@ -32,6 +33,5 @@ public class MenuItemEntity {
     @JoinColumn(name = "menuCategoryId")
     @NotNull
     private MenuEntityCategory menuCategory;
-    @ManyToMany(mappedBy = "menuItems")
-    private List<MenuEntity> menus;
+
 }

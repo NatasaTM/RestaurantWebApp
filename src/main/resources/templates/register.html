@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form_container">
-          <form action="/register/save" method="POST" th:object="${registrationDto}">
+          <form th:action="@{/register}" method="POST" th:object="${registrationDto}">
             <div>
               <input type="email" class="form-control" th:field="*{email}" placeholder="Your Email" />
             </div>

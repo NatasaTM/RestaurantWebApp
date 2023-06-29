@@ -34,6 +34,19 @@
               <input type="text" class="form-control" th:field="*{pictureUrl}" placeholder="Picture URL" />
             </div>
 
+
+            <div>
+              <label for="isActiveTrue">Active:</label>
+              <input type="radio" id="isActiveTrue" th:name="active" th:field="*{active}" th:value="true" required="required" />
+              <label for="isActiveTrue">Yes</label>
+              <input type="radio" id="isActiveFalse" th:name="active" th:field="*{active}" th:value="false" required="required" />
+              <label for="isActiveFalse">No</label>
+            </div>
+
+
+
+
+
             <div class="btn_box">
               <button type="submit">
                 Create

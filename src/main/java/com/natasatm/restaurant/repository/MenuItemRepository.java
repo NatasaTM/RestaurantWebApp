@@ -1,8 +1,8 @@
 package com.natasatm.restaurant.repository;
 
-import com.natasatm.restaurant.model.MenuItemEntity;
+import com.natasatm.restaurant.model.MenuItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MenuItemEntityRepository extends JpaRepository<MenuItemEntity,Long> {
-    MenuItemEntity findByName(String name);
+public interface MenuItemRepository extends JpaRepository<MenuItem,Long> {
+    MenuItem findByName(String name);
 }

@@ -30,23 +30,24 @@ public class AuthController {
         model.addAttribute(registrationDto);
         return "register";
     }
-    @PostMapping("/register/save")
-    public String register(@Valid @ModelAttribute("user")RegistrationDto user, BindingResult result, Model model){
-        UserEntity existingUserEmail = userService.findByEmail(user.getEmail());
+    @PostMapping("/register")
+    public String register(@Valid @ModelAttribute("registrationDto")RegistrationDto registrationDto, BindingResult result, Model model){
+        System.out.println("Method register is called");
+        UserEntity existingUserEmail = userService.findByEmail(registrationDto.getEmail());
         if(existingUserEmail !=null && existingUserEmail.getEmail() !=null && !existingUserEmail.getEmail().isEmpty()){
             return "redirect:/register?fail";
 
         }
-        UserEntity existingUserUsername = userService.findByUsername(user.getUsername());
+        UserEntity existingUserUsername = userService.findByUsername(registrationDto.getUsername());
         if(existingUserUsername !=null && existingUserUsername.getUsername() !=null && !existingUserUsername.getUsername().isEmpty()){
             return "redirect:/register?fail";
 
         }
         if(result.hasErrors()){
-            model.addAttribute("user,user");
-            return "/register";
+            model.addAttribute("user",registrationDto);
+            return "redirect:/register?fail";
         }
-        userService.saveUser(user);
+        userService.saveUser(registrationDto);
         return "redirect:/index.html?success";
 
     }

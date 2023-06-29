@@ -13,12 +13,14 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MenuItemEntityDto {
+public class MenuItemDto {
     private Long id;
 
     private String name;
 
     private String description;
+
+    private Boolean active;
 
     private BigDecimal price;
 

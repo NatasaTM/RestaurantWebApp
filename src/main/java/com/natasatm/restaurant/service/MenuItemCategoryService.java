@@ -4,7 +4,7 @@ import com.natasatm.restaurant.model.MenuEntityCategory;
 
 import java.util.List;
 
-public interface MenuEntityCategoryService {
+public interface MenuItemCategoryService {
 
     List<MenuEntityCategory> getAllCategories();
 
